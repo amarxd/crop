@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agronomy</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Inter:wght@100;200;300;400;500;531;600;700;800;900&family=Lobster&family=Montserrat:wght@1,500;600;700&family=Oxygen:wght@300;400;700&family=Raleway:ital,wght@0,100;0,500;1,400;1,500&family=Roboto:ital,wght@0,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <link href="{{url_for('static' , filename='css/ekko-lightbox.css')}} "> 
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}} "> 
+  </head>
+  <style>
+    h1 {
+      color: rgb(0, 0, 0);
+      text-align: center;
+    }
+
+    .warning {
+      color: red;
+      font-weight: bold;
+      text-align: center;
+    }
+    .card {
+      margin-left: 410px;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      color: rgb(241, 239, 240);
+    }
+.nav1{
+  display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+    .nav1 img {
+      height: 60px;
+       
+    }
+    .bg-img {
+      background-image: url("static/images/homegg.jpg");
+      
+      
+      width: 100vw;
+      position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .cont1{
+    
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    }
+    .cont2{
+      border: 2px solid #fff;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+     background-color: rgb(127, 161, 158);
+      z-index: -100;
+       
+    }
+    
+    .card1{
+      background: rgb(66, 97, 66);
+      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 20px;
+      width: 400px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card1 img{
+
+      height: 180px;
+      width: 180px;
+    }
+    
+    
+  </style>
+
+  <body>
+    <div class="bg-img">
+      <nav class="navbar nav1 navbar-expand-md navbar-light shadow-sm">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img
+              class="img-responsive"
+              src="  static/images/agronomy-logo.webp"
+              alt="Logo"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#collapsibleNavbar"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=" /predict">predict</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+       
+      <div class="container cont2  my-3 mt-3">
+           
+        <h1 class="text-success">
+          Crop Recommendation System<span class="text-success">🌱</span>
+        </h1>
+
+       
+        <form action="/predict" class="form" method="POST">
+          <div class="cont1  "> 
+          
+            <div class="col-md-4">
+              <label for="Nitrogen">Nitrogen</label>
+              <input
+                type="number"
+                id="Nitrogen"
+                name="Nitrogen"
+                placeholder="Enter Nitrogen"
+                class="form-control"
+                required
+                step="0"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="Phosporus">Phosphorus</label>
+              <input
+                type="number"
+                id="Phosporus"
+                name="Phosporus"
+                placeholder="Enter Phosphorus"
+                class="form-control"
+                required
+                step="00"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="Potassium">Potassium</label>
+              <input
+                type="number"
+                id="Potassium"
+                name="Potassium"
+                placeholder="Enter Potassium"
+                class="form-control"
+                required
+                step="0"
+              />
+            </div>
+          
+
+            <div class="col-md-4">
+              <label for="Temperature">Temperature</label>
+              <input
+                type="number"
+                step="0.01"
+                id="Temperature"
+                name="Temperature"
+                placeholder="Enter Temperature in °C"
+                class="form-control"
+                required
+                step="0"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="Humidity">Humidity</label>
+              <input
+                type="number"
+                step="0.01"
+                id="Humidity"
+                name="Humidity"
+                placeholder="Enter Humidity in %"
+                class="form-control"
+                required
+                step="0"
+              />
+            </div>
+            <div class="col-md-4">
+              <label for="pH">pH</label>
+              <input
+                type="number"
+                step="0.01"
+                id="pH"
+                name="pH"
+                placeholder="Enter pH value"
+                class="form-control"
+                required
+                step="0"
+              />
+            </div>
+         
+
+       
+            <div class="col-md-4">
+              <label for="Rainfall">Rainfall</label>
+              <input
+                type="number"
+                step="0.01"
+                id="Rainfall"
+                name="Rainfall"
+                placeholder="Enter Rainfall in mm"
+                class="form-control"
+                required
+              />
+            </div>
+          
+        </div>
+          <div class="row mt-4">
+            <div class="col-md-12 text-center">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Get Recommendation
+              </button>
+            </div>
+           
+        </div>
+        </form>
+     
+      </div>
+    
+    {% if result %}
+		<div class="card   card1" >
+		  <img src="{{url_for('static', filename='crop.png')}}"  class="card-img-top" alt="...">
+		  <div class="card-body">
+			<h5 class="card-title">Recommend Crop for Cultivation is:</h5>
+			<p class="card-text">{{ result }} </p>
+		  </div>
+		</div>
+	   {% endif %}
+       
+    </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
